@@ -1,10 +1,9 @@
 aid: whisky-hunter
 name: Whisky Hunter
 description: >-
-  All trading volumes and winning bids are stated in � (GBP). Regardless of the
-  base currency of the auction.The volume calculation for auctions or
-  distilleries includes only the lots actually sold (excluding those that have
-  not reached the reserve price) 
+  All trading volumes and winning bids are stated in � (GBP). Regardless of the base
+  currency of the auction.The volume calculation for auctions or distilleries includes
+  only the lots actually sold (excluding those that have not reached the reserve price).
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -20,10 +19,10 @@ apis:
   - aid: whisky-hunter:whisky-hunter
     name: Whisky Hunter
     description: >-
-      All trading volumes and winning bids are stated in � (GBP). Regardless of
-      the base currency of the auction.The volume calculation for auctions or
-      distilleries includes only the lots actually sold (excluding those that
-      have not reached the reserve price) 
+      All trading volumes and winning bids are stated in � (GBP). Regardless of the
+      base currency of the auction.The volume calculation for auctions or distilleries
+      includes only the lots actually sold (excluding those that have not reached
+      the reserve price).
     humanURL: ' https://whiskyhunter.net/api/'
     tags:
       - API
