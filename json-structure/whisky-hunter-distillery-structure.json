@@ -1,0 +1,9 @@
+{
+  "name": "Whisky Hunter Distillery",
+  "description": "Structure of a distillery record in the Whisky Hunter database.",
+  "fields": [
+    { "name": "name", "type": "string", "required": true, "description": "Full distillery name." },
+    { "name": "slug", "type": "string", "required": true, "description": "URL slug for data queries." },
+    { "name": "country", "type": "string", "required": false, "description": "Country of origin." }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://whiskyhunter.net/api/distillery_data/macallan/?format=json",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "dt": "2026-04-01",
+        "distillery_name": "The Macallan",
+        "trading_volume": 142356.00,
+        "lots_count": 287,
+        "winning_bid_max": 24500.00,
+        "winning_bid_min": 45.00,
+        "winning_bid_mean": 496.02
+      },
+      {
+        "dt": "2026-03-01",
+        "distillery_name": "The Macallan",
+        "trading_volume": 138745.50,
+        "lots_count": 274,
+        "winning_bid_max": 21000.00,
+        "winning_bid_min": 42.00,
+        "winning_bid_mean": 506.37
+      },
+      {
+        "dt": "2026-02-01",
+        "distillery_name": "The Macallan",
+        "trading_volume": 129882.00,
+        "lots_count": 261,
+        "winning_bid_max": 18500.00,
+        "winning_bid_min": 38.00,
+        "winning_bid_mean": 497.63
+      }
+    ]
+  }
+}

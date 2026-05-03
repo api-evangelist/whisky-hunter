@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/whisky-hunter/main/json-schema/whisky-hunter-distillery-schema.json",
+  "title": "Whisky Hunter Distillery",
+  "description": "Schema representing a whisky distillery tracked in the Whisky Hunter database.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Full name of the distillery.",
+      "example": "The Macallan"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-safe identifier used to query distillery-specific auction data.",
+      "example": "macallan",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country where the distillery is located.",
+      "example": "Scotland"
+    }
+  },
+  "required": ["name", "slug"]
+}

@@ -1,0 +1,45 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://whiskyhunter.net/api/auctions_data/?format=json",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "dt": "2026-04-01",
+        "auction_name": "Scotch Whisky Auctions",
+        "auction_slug": "scotch-whisky-auctions",
+        "auction_trading_volume": 847623.50,
+        "auction_lots_count": 4312,
+        "all_auctions_lots_count": 18754,
+        "winning_bid_max": 24500.00,
+        "winning_bid_min": 12.00,
+        "winning_bid_mean": 196.58
+      },
+      {
+        "dt": "2026-04-01",
+        "auction_name": "Whisky Auctioneer",
+        "auction_slug": "whisky-auctioneer",
+        "auction_trading_volume": 623441.00,
+        "auction_lots_count": 3187,
+        "all_auctions_lots_count": 18754,
+        "winning_bid_max": 18750.00,
+        "winning_bid_min": 15.00,
+        "winning_bid_mean": 195.67
+      },
+      {
+        "dt": "2026-04-01",
+        "auction_name": "Whisky.Auction",
+        "auction_slug": "whisky-auction",
+        "auction_trading_volume": 312885.00,
+        "auction_lots_count": 1876,
+        "all_auctions_lots_count": 18754,
+        "winning_bid_max": 8900.00,
+        "winning_bid_min": 10.00,
+        "winning_bid_mean": 166.78
+      }
+    ]
+  }
+}

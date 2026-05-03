@@ -1,0 +1,161 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Whisky Hunter API"
+  description: "Free public API providing historical whisky auction data from 28 online auction platforms, including aggregated statistics and per-distillery data. No authentication required. All monetary values in GBP (£)."
+  tags:
+    - Whisky
+    - Auctions
+    - Market Data
+    - Spirits
+    - Collectors
+    - Investors
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+capability:
+  consumes:
+    - type: http
+      namespace: whisky-hunter
+      baseUri: https://whiskyhunter.net/api
+      description: "Whisky Hunter public API for whisky auction market data."
+      resources:
+        - name: auctions-data
+          path: /auctions_data/
+          description: "Aggregated auction data across all tracked platforms."
+          operations:
+            - name: get-auctions-data
+              method: GET
+              description: "Returns aggregated auction statistics across all 28 tracked whisky auction platforms."
+              inputParameters:
+                - name: format
+                  in: query
+                  type: string
+                  required: false
+                  description: "Response format (json)."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: distilleries-info
+          path: /distilleries_info/
+          description: "List of all tracked distilleries with their slugs."
+          operations:
+            - name: list-distilleries
+              method: GET
+              description: "Returns all distilleries tracked in the Whisky Hunter database."
+              inputParameters:
+                - name: format
+                  in: query
+                  type: string
+                  required: false
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: distillery-data
+          path: /distillery_data/{slug}/
+          description: "Historical auction data for a specific distillery."
+          operations:
+            - name: get-distillery-data
+              method: GET
+              description: "Returns historical auction data for the specified distillery."
+              inputParameters:
+                - name: slug
+                  in: path
+                  type: string
+                  required: true
+                  description: "Distillery URL slug from the distilleries endpoint."
+                - name: format
+                  in: query
+                  type: string
+                  required: false
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: whisky-hunter-rest
+      resources:
+        - path: /v1/auctions
+          name: auctions
+          description: "Aggregated auction data."
+          operations:
+            - method: GET
+              name: get-auctions-data
+              description: "Get aggregated auction statistics."
+              call: "whisky-hunter.get-auctions-data"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/distilleries
+          name: distilleries
+          description: "Distillery listings."
+          operations:
+            - method: GET
+              name: list-distilleries
+              description: "List all tracked distilleries."
+              call: "whisky-hunter.list-distilleries"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/distilleries/{slug}
+          name: distillery-data
+          description: "Per-distillery auction data."
+          operations:
+            - method: GET
+              name: get-distillery-data
+              description: "Get historical auction data for a distillery."
+              call: "whisky-hunter.get-distillery-data"
+              with:
+                slug: "rest.slug"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: whisky-hunter-mcp
+      transport: http
+      tools:
+        - name: get-auctions-data
+          description: "Get aggregated auction statistics across all 28 tracked whisky platforms."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "whisky-hunter.get-auctions-data"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-distilleries
+          description: "List all whisky distilleries tracked in the database."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "whisky-hunter.list-distilleries"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-distillery-data
+          description: "Get historical auction data for a specific distillery by slug."
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "whisky-hunter.get-distillery-data"
+          with:
+            slug: "tools.slug"
+          outputParameters:
+            - type: object
+              mapping: "$."

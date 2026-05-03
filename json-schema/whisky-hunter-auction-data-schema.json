@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/whisky-hunter/main/json-schema/whisky-hunter-auction-data-schema.json",
+  "title": "Whisky Hunter Auction Data Point",
+  "description": "Schema representing an aggregated auction data point from the Whisky Hunter API. Covers trading volume, bid statistics, and lot counts for a single auction platform at a specific date. All monetary values are in GBP (£).",
+  "type": "object",
+  "properties": {
+    "dt": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the auction data point (YYYY-MM-DD)."
+    },
+    "auction_name": {
+      "type": "string",
+      "description": "Name of the whisky auction platform.",
+      "example": "Scotch Whisky Auctions"
+    },
+    "auction_slug": {
+      "type": "string",
+      "description": "URL-safe identifier for the auction platform.",
+      "example": "scotch-whisky-auctions"
+    },
+    "auction_trading_volume": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Total trading volume (sum of winning bids) in GBP (£). Excludes lots that did not meet reserve price."
+    },
+    "auction_lots_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of lots sold in this auction during this period."
+    },
+    "all_auctions_lots_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total lots sold across all 28 tracked auctions in this period."
+    },
+    "winning_bid_max": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Maximum (highest) winning bid in this auction in GBP (£)."
+    },
+    "winning_bid_min": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Minimum (lowest) winning bid in this auction in GBP (£)."
+    },
+    "winning_bid_mean": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Mean (average) winning bid in this auction in GBP (£)."
+    }
+  },
+  "required": ["dt", "auction_name", "auction_slug"]
+}

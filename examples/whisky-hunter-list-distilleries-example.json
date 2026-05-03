@@ -1,0 +1,47 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://whiskyhunter.net/api/distilleries_info/?format=json",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "name": "The Macallan",
+        "slug": "macallan",
+        "country": "Scotland"
+      },
+      {
+        "name": "Glenfarclas",
+        "slug": "glenfarclas",
+        "country": "Scotland"
+      },
+      {
+        "name": "Ardbeg",
+        "slug": "ardbeg",
+        "country": "Scotland"
+      },
+      {
+        "name": "Lagavulin",
+        "slug": "lagavulin",
+        "country": "Scotland"
+      },
+      {
+        "name": "Bowmore",
+        "slug": "bowmore",
+        "country": "Scotland"
+      },
+      {
+        "name": "Yamazaki",
+        "slug": "yamazaki",
+        "country": "Japan"
+      },
+      {
+        "name": "Buffalo Trace",
+        "slug": "buffalo-trace",
+        "country": "United States"
+      }
+    ]
+  }
+}

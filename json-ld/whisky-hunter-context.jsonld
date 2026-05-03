@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "wh": "https://whiskyhunter.net/vocab#",
+    "gs1": "https://www.gs1.org/voc/",
+
+    "WhiskyAuction": "wh:WhiskyAuction",
+    "WhiskyDistillery": "wh:WhiskyDistillery",
+    "AuctionDataPoint": "wh:AuctionDataPoint",
+    "DistilleryDataPoint": "wh:DistilleryDataPoint",
+
+    "auctionSlug": "wh:auctionSlug",
+    "distillerySlug": "wh:distillerySlug",
+    "tradingVolume": "wh:tradingVolume",
+    "lotsCount": "wh:lotsCount",
+    "allAuctionsLotsCount": "wh:allAuctionsLotsCount",
+    "winningBidMax": "wh:winningBidMax",
+    "winningBidMin": "wh:winningBidMin",
+    "winningBidMean": "wh:winningBidMean",
+    "reservePrice": "wh:reservePrice",
+    "currency": "wh:currency",
+    "scotchWhisky": "wh:scotchWhisky",
+    "singleMalt": "wh:singleMalt",
+    "blendedWhisky": "wh:blendedWhisky",
+    "bourbon": "wh:bourbon",
+    "japaneseWhisky": "wh:japaneseWhisky",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "identifier": "schema:identifier",
+    "startDate": "schema:startDate",
+    "endDate": "schema:endDate",
+    "price": "schema:price",
+    "priceCurrency": "schema:priceCurrency",
+    "seller": "schema:seller",
+    "winner": "schema:winner",
+    "numberOfItems": "schema:numberOfItems",
+    "category": "schema:category",
+    "location": "schema:location",
+    "countryOfOrigin": "schema:countryOfOrigin",
+
+    "AuctionEvent": "schema:AuctionEvent",
+    "WinAction": "schema:WinAction",
+    "BuyAction": "schema:BuyAction",
+    "Organization": "schema:Organization",
+    "Product": "schema:Product",
+    "Offer": "schema:Offer",
+    "PriceSpecification": "schema:PriceSpecification"
+  }
+}

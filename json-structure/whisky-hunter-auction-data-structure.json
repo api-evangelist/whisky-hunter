@@ -1,0 +1,15 @@
+{
+  "name": "Whisky Hunter Auction Data Point",
+  "description": "Structure of aggregated auction statistics from the Whisky Hunter API.",
+  "fields": [
+    { "name": "dt", "type": "string", "format": "date", "required": true, "description": "Date of the data point." },
+    { "name": "auction_name", "type": "string", "required": true, "description": "Auction platform name." },
+    { "name": "auction_slug", "type": "string", "required": true, "description": "URL-safe auction identifier." },
+    { "name": "auction_trading_volume", "type": "number", "required": false, "description": "Total trading volume in GBP." },
+    { "name": "auction_lots_count", "type": "integer", "required": false, "description": "Lots sold in this auction." },
+    { "name": "all_auctions_lots_count", "type": "integer", "required": false, "description": "Total lots across all auctions." },
+    { "name": "winning_bid_max", "type": "number", "required": false, "description": "Highest winning bid in GBP." },
+    { "name": "winning_bid_min", "type": "number", "required": false, "description": "Lowest winning bid in GBP." },
+    { "name": "winning_bid_mean", "type": "number", "required": false, "description": "Average winning bid in GBP." }
+  ]
+}

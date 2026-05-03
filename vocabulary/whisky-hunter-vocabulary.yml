@@ -1,0 +1,164 @@
+vocabulary:
+  name: Whisky Hunter Vocabulary
+  description: >-
+    Domain vocabulary for Whisky Hunter, a market research platform covering
+    whisky auctions, distillery data, trading volumes, price statistics, and
+    the whisky collector and investment community.
+  version: '1.0'
+  created: '2026-05-03'
+  modified: '2026-05-03'
+  tags:
+    - Whisky
+    - Auctions
+    - Market Data
+    - Spirits
+    - Collectors
+
+  terms:
+
+    - term: Whisky Hunter
+      definition: >-
+        A market research and data platform that aggregates historical auction data
+        from 28 online whisky auction sites into a single database for collectors,
+        investors, traders, and whisky enthusiasts.
+      tags:
+        - Platform
+
+    - term: Auction Data Point
+      definition: >-
+        A record of aggregated auction statistics for one auction platform at a
+        specific date, including trading volume, bid statistics, and lot counts.
+      tags:
+        - Data
+
+    - term: Trading Volume
+      definition: >-
+        The total monetary value of all lots sold in an auction during a given
+        period, calculated as the sum of all winning bids in GBP (£). Excludes
+        lots that did not meet the reserve price.
+      tags:
+        - Metric
+
+    - term: Winning Bid
+      definition: >-
+        The final accepted price paid by the buyer for a whisky lot at auction.
+        All bids in the Whisky Hunter database are stated in GBP (£) regardless
+        of the auction's base currency.
+      tags:
+        - Metric
+
+    - term: Reserve Price
+      definition: >-
+        The minimum price a seller will accept for a whisky lot at auction. Lots
+        that do not meet the reserve price are not sold and are excluded from
+        Whisky Hunter's volume and count calculations.
+      tags:
+        - Auction
+
+    - term: Lot
+      definition: >-
+        A single item or collection of items offered for sale in a single bid
+        at a whisky auction, typically one or more bottles of whisky.
+      tags:
+        - Auction
+
+    - term: Auction Slug
+      definition: >-
+        A URL-safe kebab-case identifier for a whisky auction platform used in the
+        Whisky Hunter API (e.g., 'scotch-whisky-auctions', 'whisky-auctioneer').
+      tags:
+        - API
+
+    - term: Distillery Slug
+      definition: >-
+        A URL-safe kebab-case identifier for a whisky distillery used in the
+        Whisky Hunter API to query per-distillery auction data (e.g., 'macallan',
+        'ardbeg', 'lagavulin').
+      tags:
+        - API
+
+    - term: Scotch Whisky
+      definition: >-
+        Whisky produced in Scotland under strict legal requirements including
+        aging in oak barrels for a minimum of three years. The most traded
+        category in whisky auctions.
+      tags:
+        - Spirits Category
+
+    - term: Single Malt
+      definition: >-
+        Scotch whisky produced at a single distillery using only malted barley
+        and pot stills. Single malts from premium distilleries (Macallan,
+        Glenfarclas, Ardbeg) command the highest auction prices.
+      tags:
+        - Spirits Category
+
+    - term: Blended Whisky
+      definition: >-
+        Whisky made by combining single malt whiskies with grain whiskies.
+        Includes premium blends such as Johnnie Walker Blue Label which
+        frequently appear at auction.
+      tags:
+        - Spirits Category
+
+    - term: Bourbon
+      definition: >-
+        American whiskey produced primarily from corn and aged in new charred
+        oak barrels. Includes collectible releases from Buffalo Trace, Pappy
+        Van Winkle, and other sought-after American distilleries.
+      tags:
+        - Spirits Category
+
+    - term: Japanese Whisky
+      definition: >-
+        Whisky produced in Japan, often following Scottish production methods.
+        Distilleries like Yamazaki, Hibiki, and Nikka have become highly
+        sought-after at international whisky auctions.
+      tags:
+        - Spirits Category
+
+    - term: GBP
+      definition: >-
+        British Pound Sterling (£), the currency used for all monetary values
+        in the Whisky Hunter API. All trading volumes and winning bids from
+        non-GBP auctions are converted to GBP for consistency.
+      tags:
+        - Currency
+
+    - term: Whisky Collector
+      definition: >-
+        An individual who acquires whisky bottles primarily for preservation,
+        enjoyment of rarity, or appreciation in value, often participating in
+        secondary market auctions.
+      tags:
+        - User Persona
+
+    - term: Whisky Investor
+      definition: >-
+        An individual or entity that acquires whisky bottles as alternative
+        investments, tracking market data to identify appreciation potential
+        and favorable auction timing.
+      tags:
+        - User Persona
+
+    - term: Secondary Market
+      definition: >-
+        The market for whisky bottles that have already been purchased from
+        the primary retail or distillery channel, now being resold through
+        auction houses or private sales.
+      tags:
+        - Market
+
+    - term: Distilleries Info
+      definition: >-
+        The Whisky Hunter API endpoint (/distilleries_info/) that returns a list
+        of all tracked distilleries with their names and slugs for further queries.
+      tags:
+        - API Endpoint
+
+    - term: Auctions Data
+      definition: >-
+        The Whisky Hunter API endpoint (/auctions_data/) that returns aggregated
+        auction statistics across all 28 tracked platforms.
+      tags:
+        - API Endpoint
