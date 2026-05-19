@@ -1,0 +1,76 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Whisky Hunter API — Auctions
+  description: 'Whisky Hunter API — Auctions. 1 operations. Lead operation: Get Auctions Data. Self-contained Naftiko capability
+    covering one Whisky Hunter business surface.'
+  tags:
+  - Whisky Hunter
+  - Auctions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WHISKY_HUNTER_API_KEY: WHISKY_HUNTER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: whisky-hunter-auctions
+    baseUri: https://whiskyhunter.net/api
+    description: Whisky Hunter API — Auctions business capability. Self-contained, no shared references.
+    resources:
+    - name: auctions_data
+      path: /auctions_data/
+      operations:
+      - name: getauctionsdata
+        method: GET
+        description: Get Auctions Data
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: format
+          in: query
+          type: string
+          description: Response format.
+  exposes:
+  - type: rest
+    namespace: whisky-hunter-auctions-rest
+    port: 8080
+    description: REST adapter for Whisky Hunter API — Auctions. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/auctions-data
+      name: auctions-data
+      description: REST surface for auctions_data.
+      operations:
+      - method: GET
+        name: getauctionsdata
+        description: Get Auctions Data
+        call: whisky-hunter-auctions.getauctionsdata
+        with:
+          format: rest.format
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: whisky-hunter-auctions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Whisky Hunter API — Auctions. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: get-auctions-data
+      description: Get Auctions Data
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: whisky-hunter-auctions.getauctionsdata
+      with:
+        format: tools.format
+      outputParameters:
+      - type: object
+        mapping: $.
