@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Whisky Hunter API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auctions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Auctions Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://whiskyhunter.net/api/auctions_data/",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Returns aggregated auction data across all tracked whisky auction platforms. Includes trading volume, winning bid statistics, and lot counts per auction per date period. All monetary values are in GBP (£)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Distilleries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Distilleries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://whiskyhunter.net/api/distilleries_info/",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Returns a list of all distilleries tracked in the Whisky Hunter database, including their names and URL slugs used to query per-distillery auction data."
+        },
+        {
+          "info": {
+            "name": "Get Distillery Auction Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://whiskyhunter.net/api/distillery_data/:slug/",
+            "params": [
+              {
+                "name": "slug",
+                "value": "macallan",
+                "type": "path",
+                "description": "URL slug identifying the distillery, obtained from the /distilleries_info/ endpoint."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format."
+              }
+            ]
+          },
+          "docs": "Returns historical auction data for a specific distillery identified by its slug. Includes trading volumes, winning bid statistics, and lot counts over time. All monetary values are in GBP (£)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
