@@ -48,6 +48,8 @@ apis:
       - type: DistilleriesInfo
         url: https://whiskyhunter.net/api/distilleries_info/?format=json
 common:
+  - type: DomainSecurity
+    url: security/whisky-hunter-domain-security.yml
   - type: Website
     url: https://whiskyhunter.net
   - type: API
@@ -62,6 +64,8 @@ common:
       https://raw.githubusercontent.com/api-evangelist/whisky-hunter/refs/heads/main/json-ld/whisky-hunter-context.jsonld
   - type: SpectralRules
     url: https://raw.githubusercontent.com/api-evangelist/whisky-hunter/refs/heads/main/rules/whisky-hunter-rules.yml
+  - url: https://whiskyhunter.net/blog/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
