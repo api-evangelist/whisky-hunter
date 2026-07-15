@@ -48,6 +48,8 @@ apis:
       - type: DistilleriesInfo
         url: https://whiskyhunter.net/api/distilleries_info/?format=json
 common:
+  - type: AgenticAccess
+    url: agentic-access/whisky-hunter-agentic-access.yml
   - type: DomainSecurity
     url: security/whisky-hunter-domain-security.yml
   - type: Website
