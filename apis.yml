@@ -6,9 +6,21 @@ description: >-
   volumes, winning bids, lot counts, and per-distillery statistics. All trading volumes and winning bids are stated in
   GBP (£). The Whisky Hunter API provides free, public access to this auction data with no authentication required.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Freemium · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/whisky-hunter.png
 tags:
   - Whisky
   - Spirits
@@ -21,32 +33,38 @@ created: '2025-02-24'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: whisky-hunter:whisky-hunter
-    name: Whisky Hunter API
-    description: >-
-      The Whisky Hunter API provides free, public access to historical whisky auction data aggregated from 28 online
-      whisky auction platforms. Endpoints cover aggregated auction statistics, distillery listings, and per-distillery
-      historical auction data. No authentication is required. All monetary values are in GBP (£). Only lots actually
-      sold (meeting reserve price) are included in trading volume calculations.
-    humanURL: https://whiskyhunter.net/api/
-    baseURL: https://whiskyhunter.net/api
-    tags:
-      - Whisky
-      - Auctions
-      - Market Data
-      - Distilleries
-      - Price Tracking
-      - Public API
-    properties:
-      - type: Documentation
-        url: https://whiskyhunter.net/api/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/whisky-hunter/refs/heads/main/openapi/whisky-hunter-openapi.yml
-      - type: AuctionsData
-        url: https://whiskyhunter.net/api/auctions_data/?format=json
-      - type: DistilleriesInfo
-        url: https://whiskyhunter.net/api/distilleries_info/?format=json
+- aid: whisky-hunter:whisky-hunter-auctions-api
+  name: Whisky Hunter Auctions API
+  description: The Auctions API from Whisky Hunter — 1 operation(s) for auctions.
+  humanURL: https://whiskyhunter.net/api/
+  baseURL: https://whiskyhunter.net/api
+  tags:
+  - Auctions
+  properties:
+  - type: OpenAPI
+    url: openapi/whisky-hunter-auctions-api-openapi.yml
+  - type: Documentation
+    url: https://whiskyhunter.net/api/
+  - type: AuctionsData
+    url: https://whiskyhunter.net/api/auctions_data/?format=json
+  - type: DistilleriesInfo
+    url: https://whiskyhunter.net/api/distilleries_info/?format=json
+- aid: whisky-hunter:whisky-hunter-distilleries-api
+  name: Whisky Hunter Distilleries API
+  description: The Distilleries API from Whisky Hunter — 2 operation(s) for distilleries.
+  humanURL: https://whiskyhunter.net/api/
+  baseURL: https://whiskyhunter.net/api
+  tags:
+  - Distilleries
+  properties:
+  - type: OpenAPI
+    url: openapi/whisky-hunter-distilleries-api-openapi.yml
+  - type: Documentation
+    url: https://whiskyhunter.net/api/
+  - type: AuctionsData
+    url: https://whiskyhunter.net/api/auctions_data/?format=json
+  - type: DistilleriesInfo
+    url: https://whiskyhunter.net/api/distilleries_info/?format=json
 common:
   - type: AgenticAccess
     url: agentic-access/whisky-hunter-agentic-access.yml
