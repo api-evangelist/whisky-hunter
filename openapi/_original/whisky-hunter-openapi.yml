@@ -1,0 +1,221 @@
+openapi: 3.0.3
+info:
+  title: Whisky Hunter API
+  description: >-
+    The Whisky Hunter API provides free, public access to historical whisky auction
+    data collected from 28 online whisky auction sites. It tracks trading volumes,
+    winning bids, lot counts, and per-distillery auction statistics. All trading
+    volumes and winning bids are stated in GBP (£). The API requires no authentication
+    and is available for use by collectors, investors, traders, and whisky enthusiasts.
+    Volume calculations include only lots actually sold (excluding those that did not
+    reach the reserve price).
+  version: v1
+  contact:
+    name: Whisky Hunter
+    url: https://whiskyhunter.net
+  license:
+    name: Public Data - No Authentication Required
+servers:
+  - url: https://whiskyhunter.net/api
+    description: Whisky Hunter API
+
+paths:
+  /auctions_data/:
+    get:
+      operationId: getAuctionsData
+      summary: Get Auctions Data
+      description: >-
+        Returns aggregated auction data across all tracked whisky auction platforms.
+        Includes trading volume, winning bid statistics, and lot counts per auction
+        per date period. All monetary values are in GBP (£).
+      tags:
+        - Auctions
+      parameters:
+        - name: format
+          in: query
+          required: false
+          description: Response format.
+          schema:
+            type: string
+            enum: [json]
+            default: json
+      responses:
+        '200':
+          description: Aggregated auction data across all tracked platforms.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuctionDataPoint'
+
+  /distilleries_info/:
+    get:
+      operationId: listDistilleries
+      summary: List Distilleries
+      description: >-
+        Returns a list of all distilleries tracked in the Whisky Hunter database,
+        including their names and URL slugs used to query per-distillery auction data.
+      tags:
+        - Distilleries
+      parameters:
+        - name: format
+          in: query
+          required: false
+          description: Response format.
+          schema:
+            type: string
+            enum: [json]
+            default: json
+      responses:
+        '200':
+          description: List of tracked distilleries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Distillery'
+
+  /distillery_data/{slug}/:
+    get:
+      operationId: getDistilleryData
+      summary: Get Distillery Auction Data
+      description: >-
+        Returns historical auction data for a specific distillery identified by its
+        slug. Includes trading volumes, winning bid statistics, and lot counts over
+        time. All monetary values are in GBP (£).
+      tags:
+        - Distilleries
+      parameters:
+        - name: slug
+          in: path
+          required: true
+          description: >-
+            URL slug identifying the distillery, obtained from the /distilleries_info/
+            endpoint.
+          schema:
+            type: string
+          example: macallan
+        - name: format
+          in: query
+          required: false
+          description: Response format.
+          schema:
+            type: string
+            enum: [json]
+            default: json
+      responses:
+        '200':
+          description: Historical auction data for the specified distillery.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DistilleryDataPoint'
+        '404':
+          description: Distillery not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    AuctionDataPoint:
+      type: object
+      description: A data point representing aggregated auction statistics for one auction platform at a specific time.
+      properties:
+        dt:
+          type: string
+          format: date
+          description: Date of the auction data point (YYYY-MM-DD).
+        auction_name:
+          type: string
+          description: Name of the whisky auction platform.
+          example: Scotch Whisky Auctions
+        auction_slug:
+          type: string
+          description: URL-safe identifier for the auction platform.
+          example: scotch-whisky-auctions
+        auction_trading_volume:
+          type: number
+          description: Total trading volume (sum of winning bids) for this auction in GBP (£).
+          minimum: 0
+        auction_lots_count:
+          type: integer
+          description: Number of lots sold in this auction.
+          minimum: 0
+        all_auctions_lots_count:
+          type: integer
+          description: Total number of lots sold across all tracked auctions for this period.
+          minimum: 0
+        winning_bid_max:
+          type: number
+          description: Maximum winning bid in this auction in GBP (£).
+          minimum: 0
+        winning_bid_min:
+          type: number
+          description: Minimum winning bid in this auction in GBP (£).
+          minimum: 0
+        winning_bid_mean:
+          type: number
+          description: Mean (average) winning bid in this auction in GBP (£).
+          minimum: 0
+
+    Distillery:
+      type: object
+      description: A whisky distillery tracked in the Whisky Hunter database.
+      properties:
+        name:
+          type: string
+          description: Full name of the distillery.
+          example: The Macallan
+        slug:
+          type: string
+          description: URL-safe identifier used to query distillery-specific data.
+          example: macallan
+        country:
+          type: string
+          description: Country where the distillery is located.
+          example: Scotland
+
+    DistilleryDataPoint:
+      type: object
+      description: A historical auction data point for a specific distillery.
+      properties:
+        dt:
+          type: string
+          format: date
+          description: Date of the data point (YYYY-MM-DD).
+        distillery_name:
+          type: string
+          description: Name of the distillery.
+        trading_volume:
+          type: number
+          description: Total trading volume for this distillery in this period in GBP (£).
+          minimum: 0
+        lots_count:
+          type: integer
+          description: Number of lots sold for this distillery in this period.
+          minimum: 0
+        winning_bid_max:
+          type: number
+          description: Maximum winning bid for a bottle from this distillery in GBP (£).
+          minimum: 0
+        winning_bid_min:
+          type: number
+          description: Minimum winning bid for a bottle from this distillery in GBP (£).
+          minimum: 0
+        winning_bid_mean:
+          type: number
+          description: Mean winning bid for bottles from this distillery in GBP (£).
+          minimum: 0
+
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Error message.

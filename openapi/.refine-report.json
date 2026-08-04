@@ -1,0 +1,16 @@
+{
+  "provider": "whisky-hunter",
+  "sources": [
+    "whisky-hunter-auctions-api-openapi.yml",
+    "whisky-hunter-distilleries-api-openapi.yml"
+  ],
+  "outputs": [
+    "whisky-hunter-auctions-api-openapi.yml",
+    "whisky-hunter-distilleries-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
