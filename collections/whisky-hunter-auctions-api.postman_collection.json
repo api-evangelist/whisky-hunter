@@ -1,0 +1,116 @@
+{
+  "item": [
+    {
+      "id": "24301564-ddfe-4398-9310-47c2360d92e7",
+      "name": "Auctions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf17f9f9-7ef6-4cd8-a1dc-2c53a054b4d5",
+          "name": "Get Auctions Data",
+          "request": {
+            "name": "Get Auctions Data",
+            "description": {
+              "content": "Returns aggregated auction data across all tracked whisky auction platforms. Includes trading volume, winning bid statistics, and lot counts per auction per date period. All monetary values are in GBP (£).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auctions_data",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30fb62e6-5c83-4cbb-9ba2-87902263c18e",
+              "name": "Aggregated auction data across all tracked platforms.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auctions_data",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dt\": \"1997-03-15\",\n    \"auction_name\": \"Scotch Whisky Auctions\",\n    \"auction_slug\": \"scotch-whisky-auctions\",\n    \"auction_trading_volume\": 19.295001794598086,\n    \"auction_lots_count\": 833,\n    \"all_auctions_lots_count\": 1115,\n    \"winning_bid_max\": 8750.366174267605,\n    \"winning_bid_min\": 8863.264139110155,\n    \"winning_bid_mean\": 6074.660991062443\n  },\n  {\n    \"dt\": \"1982-10-31\",\n    \"auction_name\": \"Scotch Whisky Auctions\",\n    \"auction_slug\": \"scotch-whisky-auctions\",\n    \"auction_trading_volume\": 3019.1703824158767,\n    \"auction_lots_count\": 810,\n    \"all_auctions_lots_count\": 6484,\n    \"winning_bid_max\": 9222.976355362658,\n    \"winning_bid_min\": 7666.033663438716,\n    \"winning_bid_mean\": 1445.0837386633464\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://whiskyhunter.net/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5e578511-7a0e-4059-bbda-12e6c86c99fe",
+    "name": "Whisky Hunter Auctions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Whisky Hunter API provides free, public access to historical whisky auction data collected from 28 online whisky auction sites. It tracks trading volumes, winning bids, lot counts, and per-distillery auction statistics. All trading volumes and winning bids are stated in GBP (£). The API requires no authentication and is available for use by collectors, investors, traders, and whisky enthusiasts. Volume calculations include only lots actually sold (excluding those that did not reach the reserve price).\n\nContact Support:\n Name: Whisky Hunter",
+      "type": "text/plain"
+    }
+  }
+}

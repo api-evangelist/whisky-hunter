@@ -1,0 +1,268 @@
+{
+  "item": [
+    {
+      "id": "8f81f5d2-844f-4728-97b7-033376733371",
+      "name": "Distilleries",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "46dac6a1-3ed6-4545-ac49-f74def473e52",
+          "name": "List Distilleries",
+          "request": {
+            "name": "List Distilleries",
+            "description": {
+              "content": "Returns a list of all distilleries tracked in the Whisky Hunter database, including their names and URL slugs used to query per-distillery auction data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "distilleries_info",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json",
+                  "description": "Response format."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2ff6c7a-c5cf-4923-a82a-201f3ae539e8",
+              "name": "List of tracked distilleries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distilleries_info",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"The Macallan\",\n    \"slug\": \"macallan\",\n    \"country\": \"Scotland\"\n  },\n  {\n    \"name\": \"The Macallan\",\n    \"slug\": \"macallan\",\n    \"country\": \"Scotland\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17869919-31df-4dea-a1a2-2541e4b1c14c",
+          "name": "Get Distillery Auction Data",
+          "request": {
+            "name": "Get Distillery Auction Data",
+            "description": {
+              "content": "Returns historical auction data for a specific distillery identified by its slug. Includes trading volumes, winning bid statistics, and lot counts over time. All monetary values are in GBP (£).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "distillery_data",
+                ":slug",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "json",
+                  "description": "Response format."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) URL slug identifying the distillery, obtained from the /distilleries_info/ endpoint."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fff1ad1c-3634-4b15-95e9-cdae99f32b2b",
+              "name": "Historical auction data for the specified distillery.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distillery_data",
+                    ":slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) URL slug identifying the distillery, obtained from the /distilleries_info/ endpoint."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dt\": \"1986-02-20\",\n    \"distillery_name\": \"string\",\n    \"trading_volume\": 9066.326571032492,\n    \"lots_count\": 8618,\n    \"winning_bid_max\": 2298.267844121952,\n    \"winning_bid_min\": 8159.808433085601,\n    \"winning_bid_mean\": 4353.858533701274\n  },\n  {\n    \"dt\": \"2001-06-10\",\n    \"distillery_name\": \"string\",\n    \"trading_volume\": 9682.627759319388,\n    \"lots_count\": 2058,\n    \"winning_bid_max\": 212.25377513393707,\n    \"winning_bid_min\": 8593.26622966386,\n    \"winning_bid_mean\": 1427.2284465832652\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cef45ed-a2cc-4122-ae69-8654cc72e8c8",
+              "name": "Distillery not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "distillery_data",
+                    ":slug",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "json"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) URL slug identifying the distillery, obtained from the /distilleries_info/ endpoint."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://whiskyhunter.net/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6340d340-9baf-46aa-b91f-1cbc50a298f1",
+    "name": "Whisky Hunter Auctions Distilleries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Whisky Hunter API provides free, public access to historical whisky auction data collected from 28 online whisky auction sites. It tracks trading volumes, winning bids, lot counts, and per-distillery auction statistics. All trading volumes and winning bids are stated in GBP (£). The API requires no authentication and is available for use by collectors, investors, traders, and whisky enthusiasts. Volume calculations include only lots actually sold (excluding those that did not reach the reserve price).\n\nContact Support:\n Name: Whisky Hunter",
+      "type": "text/plain"
+    }
+  }
+}
