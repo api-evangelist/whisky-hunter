@@ -31,7 +31,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/whisky-hunter/refs/heads/main/apis.yml
 created: '2025-02-24'
 modified: '2026-05-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: whisky-hunter:whisky-hunter-auctions-api
   name: Whisky Hunter Auctions API
