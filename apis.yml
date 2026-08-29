@@ -6,6 +6,17 @@ description: >-
   volumes, winning bids, lot counts, and per-distillery statistics. All trading volumes and winning bids are stated in
   GBP (£). The Whisky Hunter API provides free, public access to this auction data with no authentication required.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: open
