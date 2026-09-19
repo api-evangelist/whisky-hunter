@@ -38,6 +38,13 @@ tags:
   - Auctions
   - Market Data
   - Collectors
+  - Investor
+tags_raw:
+  - Whisky
+  - Spirits
+  - Auctions
+  - Market Data
+  - Collectors
   - Investors
 url: https://raw.githubusercontent.com/api-evangelist/whisky-hunter/refs/heads/main/apis.yml
 created: '2025-02-24'
