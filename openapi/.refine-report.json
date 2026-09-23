@@ -1,8 +1,7 @@
 {
   "provider": "whisky-hunter",
   "sources": [
-    "whisky-hunter-auctions-api-openapi.yml",
-    "whisky-hunter-distilleries-api-openapi.yml"
+    "_original/whisky-hunter-openapi.yml"
   ],
   "outputs": [
     "whisky-hunter-auctions-api-openapi.yml",
@@ -11,6 +10,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "whisky-hunter-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "whisky-hunter-openapi.yml: declared missing tag: Auctions",
+    "whisky-hunter-openapi.yml: declared missing tag: Distilleries",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "whisky-hunter-auctions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "whisky-hunter-distilleries-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Whisky Hunter Auctions API
-  description: The Whisky Hunter API provides free, public access to historical whisky auction data collected from 28 online whisky auction sites. It tracks trading volumes, winning bids, lot counts, and per-distillery auction statistics. All trading volumes and winning bids are stated in GBP (£). The API requires no authentication and is available for use by collectors, investors, traders, and whisky enthusiasts. Volume calculations include only lots actually sold (excluding those that did not reach the reserve price).
+  description: The Whisky Hunter API provides free, public access to historical whisky auction data collected from 28 online whisky auction sites.
   version: v1
   contact:
     name: Whisky Hunter

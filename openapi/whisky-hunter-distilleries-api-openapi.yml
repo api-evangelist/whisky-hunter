@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Whisky Hunter Auctions Distilleries API
-  description: The Whisky Hunter API provides free, public access to historical whisky auction data collected from 28 online whisky auction sites. It tracks trading volumes, winning bids, lot counts, and per-distillery auction statistics. All trading volumes and winning bids are stated in GBP (£). The API requires no authentication and is available for use by collectors, investors, traders, and whisky enthusiasts. Volume calculations include only lots actually sold (excluding those that did not reach the reserve price).
+  title: Whisky Hunter Distilleries API
+  description: The Whisky Hunter API provides free, public access to historical whisky auction data collected from 28 online whisky auction sites.
   version: v1
   contact:
     name: Whisky Hunter
@@ -87,22 +87,6 @@ components:
         detail:
           type: string
           description: Error message.
-    Distillery:
-      type: object
-      description: A whisky distillery tracked in the Whisky Hunter database.
-      properties:
-        name:
-          type: string
-          description: Full name of the distillery.
-          example: The Macallan
-        slug:
-          type: string
-          description: URL-safe identifier used to query distillery-specific data.
-          example: macallan
-        country:
-          type: string
-          description: Country where the distillery is located.
-          example: Scotland
     DistilleryDataPoint:
       type: object
       description: A historical auction data point for a specific distillery.
@@ -134,3 +118,19 @@ components:
           type: number
           description: Mean winning bid for bottles from this distillery in GBP (£).
           minimum: 0
+    Distillery:
+      type: object
+      description: A whisky distillery tracked in the Whisky Hunter database.
+      properties:
+        name:
+          type: string
+          description: Full name of the distillery.
+          example: The Macallan
+        slug:
+          type: string
+          description: URL-safe identifier used to query distillery-specific data.
+          example: macallan
+        country:
+          type: string
+          description: Country where the distillery is located.
+          example: Scotland
