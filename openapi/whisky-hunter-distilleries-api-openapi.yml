@@ -81,6 +81,28 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+          description: Error message.
+    Distillery:
+      type: object
+      description: A whisky distillery tracked in the Whisky Hunter database.
+      properties:
+        name:
+          type: string
+          description: Full name of the distillery.
+          example: The Macallan
+        slug:
+          type: string
+          description: URL-safe identifier used to query distillery-specific data.
+          example: macallan
+        country:
+          type: string
+          description: Country where the distillery is located.
+          example: Scotland
     DistilleryDataPoint:
       type: object
       description: A historical auction data point for a specific distillery.
@@ -112,25 +134,3 @@ components:
           type: number
           description: Mean winning bid for bottles from this distillery in GBP (£).
           minimum: 0
-    Error:
-      type: object
-      properties:
-        detail:
-          type: string
-          description: Error message.
-    Distillery:
-      type: object
-      description: A whisky distillery tracked in the Whisky Hunter database.
-      properties:
-        name:
-          type: string
-          description: Full name of the distillery.
-          example: The Macallan
-        slug:
-          type: string
-          description: URL-safe identifier used to query distillery-specific data.
-          example: macallan
-        country:
-          type: string
-          description: Country where the distillery is located.
-          example: Scotland
