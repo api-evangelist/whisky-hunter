@@ -84,6 +84,12 @@ apis:
   - type: DistilleriesInfo
     url: https://whiskyhunter.net/api/distilleries_info/?format=json
 common:
+  - type: Plans
+    url: plans/whisky-hunter-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/whisky-hunter-rate-limits.yml
+  - type: FinOps
+    url: finops/whisky-hunter-finops.yml
   - type: AgenticAccess
     url: agentic-access/whisky-hunter-agentic-access.yml
   - type: DomainSecurity
